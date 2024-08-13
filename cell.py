@@ -14,6 +14,8 @@ class Cell:
         self._win = win
 
     def draw(self, x1, y1, x2, y2):
+        if self._win is None:
+            return
         # Draw the walls of the cell based on its properties.
         self._x1 = x1
         self._x2 = x2
@@ -39,3 +41,19 @@ class Cell:
         if self.has_bottom_wall:
             line = Line(Point(x1, y2), Point(x2, y2))
             self._win.draw_line(line)
+
+    def draw_move(self, to_cell, undo=False):
+        # Calculate the center of the current cell
+        x_centre_start = (self._x1 + self._x2) // 2
+        y_centre_start = (self._y1 + self._y2) // 2
+
+        # Calculate the center of the destination cell
+        x_centre_end = (to_cell._x1 + to_cell._x2) // 2
+        y_centre_end = (to_cell._y1 + to_cell._y2) // 2
+
+        # Set the line color based on whether the move is being undone
+        fill_colour = "gray" if undo else "red"
+
+        # Draw the line connecting the two cells
+        line = Line(Point(x_centre_start, y_centre_start), Point(x_centre_end, y_centre_end))
+        self._win.draw_line(line, fill_colour)
