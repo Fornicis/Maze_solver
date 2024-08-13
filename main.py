@@ -1,9 +1,25 @@
 from graphics import Window, Line, Point
+from cell import Cell
 
 def main():
     win = Window(800, 600)  # Create a window with specified dimensions
-    l = Line(Point(60, 100), Point(60, 400))  # Create a line from (60, 60) to (450, 450)
-    win.draw_line(l, "black")  # Draw the line in black on the window's canvas
+    #Creates cells with no adjoining walls to test code
+    c = Cell(win)
+    c.has_left_wall = False
+    c.draw(50, 50, 100, 100)
+
+    c = Cell(win)
+    c.has_right_wall = False
+    c.draw(125, 125, 200, 200)
+
+    c = Cell(win)
+    c.has_bottom_wall = False
+    c.draw(225, 225, 250, 250)
+
+    c = Cell(win)
+    c.has_top_wall = False
+    c.draw(300, 300, 500, 500)
+
     win.wait_for_close()  # Keep the window open until manually closed
 
 main()
