@@ -3,7 +3,7 @@ from tkinter import Tk, BOTH, Canvas
 # Window class to create a GUI window with a canvas using Tkinter
 class Window:
     def __init__(self, width, height):
-        self.__root = Tk()  # Initialize the main window
+        self.__root = Tk()  # Initialise the main window
         self.__root.title("Maze Solver")  # Set window title
         self.__canvas = Canvas(self.__root, bg="white", height=height, width=width)
         self.__canvas.pack(fill=BOTH, expand=1)  # Pack the canvas to fill the window

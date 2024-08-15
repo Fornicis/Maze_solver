@@ -20,7 +20,8 @@ class Maze:
         self._cell_size_y = cell_size_y  # Height of each cell
         self._win = win  # Window to draw the maze on
 
-        self._create_cells()  # Initialize and draw cells
+        self._create_cells()  # Initialise and draw cells
+        self._break_entrance_and_exit() # Initialise the break_entrance_exit method
 
     def _create_cells(self):
         # Create a grid of cells
@@ -51,3 +52,16 @@ class Maze:
             return
         self._win.redraw()  # Redraw the window
         time.sleep(0.04)  # Pause for animation effect (4ms)
+
+    def _break_entrance_and_exit(self):
+        # Remove the top wall of the first cell (top-left corner) to create the entrance
+        self._cells[0][0].has_top_wall = False
+        
+        # Redraw the first cell to reflect the removal of the top wall
+        self._draw_cell(0, 0)
+        
+        # Remove the bottom wall of the last cell (bottom-right corner) to create the exit
+        self._cells[self._num_cols - 1][self._num_rows - 1].has_bottom_wall = False
+        
+        # Redraw the last cell to reflect the removal of the bottom wall
+        self._draw_cell(self._num_cols - 1, self._num_rows - 1)

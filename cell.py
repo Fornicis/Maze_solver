@@ -2,7 +2,7 @@ from graphics import Line, Point
 
 class Cell:
     def __init__(self, win):
-        # Initialize a Cell object with default wall settings.
+        # Initialise a Cell object with default wall settings.
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -22,25 +22,37 @@ class Cell:
         self._y1 = y1
         self._y2 = y2
 
-        # Draw left wall if present
+        # Draw left wall if present, if not, draws a white line to indicate opening
         if self.has_left_wall:
             line = Line(Point(x1, y1), Point(x1, y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1, y1), Point(x1, y2))
+            self._win.draw_line(line, "white")
 
-        # Draw top wall if present
+        # Draw top wall if present, if not, draws a white line to indicate opening
         if self.has_top_wall:
             line = Line(Point(x1, y1), Point(x2, y1))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1, y1), Point(x2, y1))
+            self._win.draw_line(line, "white")
 
-        # Draw right wall if present
+        # Draw right wall if present, if not, draws a white line to indicate opening
         if self.has_right_wall:
             line = Line(Point(x2, y1), Point(x2, y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x2, y1), Point(x2, y2))
+            self._win.draw_line(line, "white")
 
-        # Draw bottom wall if present
+        # Draw bottom wall if present, if not, draws a white line to indicate opening
         if self.has_bottom_wall:
             line = Line(Point(x1, y2), Point(x2, y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1, y2), Point(x2, y2))
+            self._win.draw_line(line, "white")
 
     def draw_move(self, to_cell, undo=False):
         # Calculate the center of the current cell
