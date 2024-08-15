@@ -5,8 +5,8 @@ def main():
     num_rows = 12  # Number of rows in the maze
     num_cols = 16  # Number of columns in the maze
     margin = 50  # Margin around the maze
-    screen_x = 800  # Width of the window
-    screen_y = 600  # Height of the window
+    screen_x = 1024  # Width of the window
+    screen_y = 768  # Height of the window
 
     # Calculate the size of each cell based on the screen size and margins
     cell_size_x = (screen_x - 2 * margin) / num_cols
