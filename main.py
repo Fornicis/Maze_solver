@@ -15,7 +15,7 @@ def main():
     win = Window(screen_x, screen_y)  # Create a window with the specified dimensions
 
     # Create a maze with the calculated parameters and draw it in the window
-    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win, 100)
 
 
     # Keep the window open until manually closed
