@@ -26,7 +26,7 @@ class Maze:
 
         self._create_cells()  # Initialise and draw cells
         self._break_entrance_and_exit() # Initialise the break_entrance_exit method
-        self._break_walls_r(0, 0)
+        self._break_walls_r(0, 0) # Initialise the _break_walls_r method
 
     def _create_cells(self):
         # Create a grid of cells
@@ -109,12 +109,12 @@ class Maze:
                 self._cells[i][j].has_left_wall = False
                 self._cells[i - 1][j].has_right_wall = False
             #Top
-            if next_ind [0] == j + 1:
+            if next_ind [1] == j - 1:
                 self._cells[i][j].has_top_wall = False
                 self._cells[i][j - 1].has_bottom_wall = False
 
             #Bottom
-            if next_ind[0] == j - 1:
+            if next_ind[1] == j + 1:
                 self._cells[i][j].has_bottom_wall = False
                 self._cells[i][j + 1].has_top_wall = False
 
